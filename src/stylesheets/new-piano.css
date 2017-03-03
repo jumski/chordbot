@@ -36,6 +36,7 @@
   height: 200px;
   position: absolute;
   margin-left: -15px;
+  z-index: 23;
 }
 .piano-key.black .note-name {
   top: 170px;
