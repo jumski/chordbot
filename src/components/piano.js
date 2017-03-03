@@ -1,29 +1,22 @@
 import React, { Component } from 'react';
-import WhiteKey from './white-key';
-import BlackKey from './black-key';
+import Key from './key';
 import tonal from 'tonal';
+import pianoStyles from '../stylesheets/new-piano.css';
 window.tonal=tonal;
-
-const componentForNote = function(note) {
-  if (note.indexOf('#') > -1 || note.indexOf('b') > -1) {
-    return <BlackKey key={note} note={note}/>;
-  }
-  else {
-    return <WhiteKey key={note} note={note}/>;
-  }
-};
 
 export default class Piano extends Component {
   keys(baseOctave = 3) {
-    const notesRange = `C${baseOctave}, C${baseOctave + 1}`;
+    const notesRange = `C${baseOctave}, C${baseOctave + 2}`;
 
-    return tonal.range.chromatic(notesRange).map(componentForNote);
+    return tonal.range.chromatic(notesRange).map(note => {
+      return <Key note={note}/>;
+    });
   }
 
   render() {
-    return <ul className="piano">
+    return <div>
       {this.keys()}
-    </ul>;
+    </div>;
     // return <ul className="piano">
     //   <li className="key">
     //     <WhiteKey note="C"/>
