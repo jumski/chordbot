@@ -30,3 +30,12 @@
 .piano-key.black .note-name {
   top: 170px;
 }
+
+
+.piano-key:hover {
+  border-color: grey;
+  background-color: grey;
+}
+.piano-key:hover .note-name {
+  color: black;
+}
