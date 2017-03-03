@@ -2,7 +2,7 @@
   "name": "chordbot",
   "version": "0.0.1",
   "description": "App for learning/visualising/finding/playing chords and other musical stuff",
-  "main": "index.js",
+  "main": "app.js",
   "author": "Wojtek Majewski <jumski@gmail.com>",
   "license": "MIT",
   "devDependencies": {
