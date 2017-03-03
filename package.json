@@ -22,5 +22,9 @@
     "watch": "node_modules/.bin/webpack --progress --colors --watch",
     "run": "$BROWSER http://localhost:8080",
     "server": "node_modules/.bin/webpack-dev-server --progress --colors"
+  },
+  "dependencies": {
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
   }
 }
