@@ -1,9 +1,9 @@
 import styles from './stylesheets/application.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Piano from './components/piano';
+import ChordBot from './components/chord-bot';
 
 ReactDOM.render(
-  <Piano/>,
+  <ChordBot/>,
   document.getElementById('app')
 );
