@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Key from './key';
-import ChordSelect from './chord-select';
+import SimpleSelect from './simple-select';
 import tonal from 'tonal';
 import pianoStyles from '../stylesheets/new-piano.css';
 window.tonal=tonal;
@@ -12,6 +12,7 @@ export default class Piano extends Component {
     this.state = {
       baseOctave: 3,
       chord: '5',
+      scale: 'major',
     };
   }
 
@@ -44,9 +45,11 @@ export default class Piano extends Component {
   }
 
   setChord(event) {
-    const chord = event.target.value;
+    this.setState({ chord: event.target.value });
+  }
 
-    this.setState({ chord: chord });
+  setScale(event) {
+    this.setState({ scale: event.target.value });
   }
 
   render() {
@@ -59,7 +62,11 @@ export default class Piano extends Component {
         </div>
 
         <div>
-          <ChordSelect selected={this.state.chord} onChange={this.setChord.bind(this)}/>
+          <SimpleSelect values={tonal.chord.names()} selected={this.state.chord} onChange={this.setChord.bind(this)}/>
+        </div>
+
+        <div>
+          <SimpleSelect values={tonal.scale.names()} selected={this.state.scale} onChange={this.setScale.bind(this)}/>
         </div>
       </div>
     </div>;
