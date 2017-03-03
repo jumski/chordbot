@@ -1,5 +1,14 @@
 .piano-key {
   display: inline-block;
+  cursor: pointer;
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+
 }
 
 .piano-key .note-name {
@@ -20,7 +29,7 @@
 }
 
 .piano-key.black {
-  border: 1px solid white;
+  border: 1px solid black;
   background-color: black;
   width: 30px;
   height: 200px;
@@ -38,4 +47,12 @@
 }
 .piano-key:hover .note-name {
   color: black;
+}
+
+.piano-key:active {
+  background-color: red;
+}
+
+.piano-key.highlighted {
+  background-color: yellow;
 }
