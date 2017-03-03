@@ -104,6 +104,10 @@ arrify@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/arrify/-/arrify-1.0.1.tgz#898508da2226f380df904728456849c1501a4b0d"
 
+as-arr@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/as-arr/-/as-arr-1.0.0.tgz#f87468fe518273aff9a0e6c24500d487dfa08ada"
+
 asap@~2.0.3:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/asap/-/asap-2.0.5.tgz#522765b50c3510490e52d7dcfe085ef9ba96958f"
@@ -1887,6 +1891,10 @@ interpret@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.1.tgz#d579fb7f693b858004947af39fa0db49f795602c"
 
+interval-notation@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/interval-notation/-/interval-notation-1.0.0.tgz#6696136a103551e551893b29b78ccd4b4e1b3cf6"
+
 invariant@^2.2.0:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
@@ -2399,6 +2407,10 @@ normalize-url@^1.4.0:
     prepend-http "^1.0.0"
     query-string "^4.1.0"
     sort-keys "^1.0.0"
+
+note-parser@^2, note-parser@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/note-parser/-/note-parser-2.0.0.tgz#0dbe08f93ad9a44d2448adeff3dba572e3161c1b"
 
 npmlog@^4.0.1:
   version "4.0.2"
@@ -3465,6 +3477,230 @@ to-arraybuffer@^1.0.0:
 to-fast-properties@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/to-fast-properties/-/to-fast-properties-1.0.2.tgz#f3f5c0c3ba7299a7ef99427e44633257ade43320"
+
+tonal-array@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-array/-/tonal-array-0.69.0.tgz#ae6eca737a93ebfb35075ff5514754e8377e12ab"
+  dependencies:
+    as-arr "^1.0.0"
+    tonal-distance "^0.69.0"
+    tonal-pitch "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-chord@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-chord/-/tonal-chord-0.69.0.tgz#5dca65900f7447fd694292a153e4eb9370656b4c"
+  dependencies:
+    note-parser "^2"
+    tonal-array "^0.69.0"
+    tonal-dictionary "^0.69.0"
+    tonal-harmonizer "^0.69.0"
+    tonal-note "^0.69.0"
+
+tonal-dictionary@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-dictionary/-/tonal-dictionary-0.69.0.tgz#5c56826ee2e8a72e3022986530121f0f53d00d71"
+
+tonal-distance@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-distance/-/tonal-distance-0.69.0.tgz#936d5d0745b4a1b5dc0e4d2dc7db1ad63ec64b05"
+  dependencies:
+    tonal-pitch "^0.69.0"
+
+tonal-encoding@^0.66.0:
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/tonal-encoding/-/tonal-encoding-0.66.0.tgz#b67e1a33d9b18e7cbee4df911b63c58387fbe38d"
+
+tonal-encoding@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-encoding/-/tonal-encoding-0.69.0.tgz#43023e130d4514674943e5678e8c0cda4cee3c31"
+
+tonal-filter@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-filter/-/tonal-filter-0.69.0.tgz#0ccb43d52b716905a3dab801e81d2014848d6d60"
+
+tonal-freq@^0.61.0:
+  version "0.61.0"
+  resolved "https://registry.yarnpkg.com/tonal-freq/-/tonal-freq-0.61.0.tgz#27ead2c9b76d722f081c5d9094204f5d84d0b6c6"
+  dependencies:
+    tonal-midi "^0.61.0"
+
+tonal-freq@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-freq/-/tonal-freq-0.69.0.tgz#de65c9c9ac13138dceac865c5a3ea162d3a565ea"
+  dependencies:
+    tonal-midi "^0.69.0"
+
+tonal-harmonizer@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-harmonizer/-/tonal-harmonizer-0.69.0.tgz#6077c1ab7489f213efcb30c3f5bc5a986fa6ac49"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-distance "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-interval@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-interval/-/tonal-interval-0.69.0.tgz#868ed30c5883c7e8279b11b1949acb66fe9c316b"
+  dependencies:
+    interval-notation "^1.0.0"
+    tonal-pitch "^0.69.0"
+
+tonal-key@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-key/-/tonal-key-0.69.0.tgz#107c455aeed9f3ece8d9c5c8c479246db493863e"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-harmonizer "^0.69.0"
+    tonal-notation "^0.69.0"
+    tonal-note "^0.69.0"
+    tonal-range "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-midi@^0.61.0:
+  version "0.61.0"
+  resolved "https://registry.yarnpkg.com/tonal-midi/-/tonal-midi-0.61.0.tgz#aba27995fc145b967421d2890ec32def954a305a"
+  dependencies:
+    note-parser "^2"
+
+tonal-midi@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-midi/-/tonal-midi-0.69.0.tgz#ab367aff1eecf4e930ccce044df07c43edab7987"
+  dependencies:
+    note-parser "^2"
+
+tonal-notation@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-notation/-/tonal-notation-0.69.0.tgz#d95913bc80e9393606d165c7d215a82d6418b99e"
+
+tonal-note@^0.66.0:
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/tonal-note/-/tonal-note-0.66.0.tgz#a7dc9159b538f154fdb400082cf6577fb90da93d"
+  dependencies:
+    note-parser "^2.0.0"
+    tonal-freq "^0.61.0"
+    tonal-midi "^0.61.0"
+    tonal-pitch "^0.66.0"
+    tonal-transpose "^0.66.0"
+
+tonal-note@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-note/-/tonal-note-0.69.0.tgz#13cdbeaf6a30b8ea53815b0b8cfbe3841c4db527"
+  dependencies:
+    note-parser "^2.0.0"
+    tonal-freq "^0.69.0"
+    tonal-midi "^0.69.0"
+    tonal-pitch "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-pcset@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-pcset/-/tonal-pcset-0.69.0.tgz#98bcac7cbc18ce82367046914eba680a8cd0cef8"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-note "^0.66.0"
+    tonal-pitch "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-pitch@^0.66.0:
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/tonal-pitch/-/tonal-pitch-0.66.0.tgz#37c8113f229f4e95a45d1693178952834f69e4cc"
+  dependencies:
+    interval-notation "^1.0.0"
+    note-parser "^2"
+    tonal-encoding "^0.66.0"
+
+tonal-pitch@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-pitch/-/tonal-pitch-0.69.0.tgz#26f90fbd592d00f6b36fa62729eb7528112a0d9d"
+  dependencies:
+    interval-notation "^1.0.0"
+    note-parser "^2"
+    tonal-encoding "^0.69.0"
+
+tonal-pitchset@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-pitchset/-/tonal-pitchset-0.69.0.tgz#f6a9fa4d2936dfdf7c95bda6e4f797c52965f316"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-note "^0.66.0"
+    tonal-pitch "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-progression@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-progression/-/tonal-progression-0.69.0.tgz#ace4990865ff1df45114d4f862081305246e0de6"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-chord "^0.69.0"
+    tonal-distance "^0.69.0"
+    tonal-interval "^0.69.0"
+    tonal-notation "^0.69.0"
+    tonal-note "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-range@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-range/-/tonal-range-0.69.0.tgz#ae4996a3dfafc70876b729bb70077e0d2bfc9586"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-midi "^0.69.0"
+    tonal-note "^0.69.0"
+    tonal-pcset "^0.69.0"
+    tonal-transpose "^0.69.0"
+
+tonal-scale@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-scale/-/tonal-scale-0.69.0.tgz#31fad3de912ec7bbca6c7ffbd1af3ac43f53530d"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-dictionary "^0.69.0"
+    tonal-harmonizer "^0.69.0"
+    tonal-note "^0.69.0"
+
+tonal-sonority@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-sonority/-/tonal-sonority-0.69.0.tgz#3509773b0b6e1727a88ebbd47c6ea8b2099c9ac1"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-interval "^0.69.0"
+    tonal-pitch "^0.69.0"
+
+tonal-transpose@^0.66.0:
+  version "0.66.0"
+  resolved "https://registry.yarnpkg.com/tonal-transpose/-/tonal-transpose-0.66.0.tgz#342121d1e3d38b4957e4f84876d4e8255a86305c"
+  dependencies:
+    tonal-pitch "^0.66.0"
+
+tonal-transpose@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal-transpose/-/tonal-transpose-0.69.0.tgz#a40c5e1dac3d0d43a66b3d634e319b78b3ff3b32"
+  dependencies:
+    tonal-pitch "^0.69.0"
+
+tonal@^0.69.0:
+  version "0.69.0"
+  resolved "https://registry.yarnpkg.com/tonal/-/tonal-0.69.0.tgz#b27d333fe5f526efe52e0c68071e5ac770305802"
+  dependencies:
+    tonal-array "^0.69.0"
+    tonal-chord "^0.69.0"
+    tonal-distance "^0.69.0"
+    tonal-filter "^0.69.0"
+    tonal-freq "^0.69.0"
+    tonal-harmonizer "^0.69.0"
+    tonal-interval "^0.69.0"
+    tonal-key "^0.69.0"
+    tonal-midi "^0.69.0"
+    tonal-notation "^0.69.0"
+    tonal-note "^0.69.0"
+    tonal-pcset "^0.69.0"
+    tonal-pitch "^0.69.0"
+    tonal-pitchset "^0.69.0"
+    tonal-progression "^0.69.0"
+    tonal-range "^0.69.0"
+    tonal-scale "^0.69.0"
+    tonal-sonority "^0.69.0"
+    tonal-transpose "^0.69.0"
 
 toposort@^1.0.0:
   version "1.0.3"
