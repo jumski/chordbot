@@ -14,7 +14,7 @@
   "scripts": {
     "build": "node_modules/.bin/webpack --progress --colors",
     "watch": "node_modules/.bin/webpack --progress --colors --watch",
-    "run": "$BROWSER index.html",
+    "run": "$BROWSER http://localhost:8080",
     "server": "node_modules/.bin/webpack-dev-server --progress --colors"
   }
 }

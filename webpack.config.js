@@ -6,7 +6,11 @@ module.exports = {
     app: './app.js',
   },
   output: {
-    path: path.resolve(__dirname, './dist'),
+		path: path.resolve(__dirname, './dist/assets'),
     filename: '[name].bundle.js',
+		publicPath: '/assets',
+  },
+  devServer: {
+    contentBase: path.resolve(__dirname, './src'),
   },
 };
