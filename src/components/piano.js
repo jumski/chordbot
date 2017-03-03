@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Key from './key';
+import ChordSelect from './chord-select';
 import tonal from 'tonal';
 import pianoStyles from '../stylesheets/new-piano.css';
 window.tonal=tonal;
@@ -45,8 +46,14 @@ export default class Piano extends Component {
     return <div>
       <div className="keys">{this.keys(this.state.baseOctave)}</div>
       <div className="menu">
-        <button disabled={this.isMinOctave()} onClick={this.octaveDown.bind(this)}>Octave Down</button>
-        <button disabled={this.isMaxOctave()} onClick={this.octaveUp.bind(this)}>Octave Up</button>
+        <div>
+          <button disabled={this.isMinOctave()} onClick={this.octaveDown.bind(this)}>Octave Down</button>
+          <button disabled={this.isMaxOctave()} onClick={this.octaveUp.bind(this)}>Octave Up</button>
+        </div>
+
+        <div>
+          <ChordSelect/>
+        </div>
       </div>
     </div>;
   }
