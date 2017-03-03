@@ -12,18 +12,16 @@ export default class Key extends Component {
     }
   }
 
-  selectedClassName() {
-    if (this.props.isSelected)
-      return 'selected';
-
-    if (this.props.isHighlighted)
-      return 'highlighted';
-
-    return '';
-  }
-
   classNames() {
-    return ['piano-key', this.colorClassName(), this.selectedClassName()].join(' ');
+    const names = ['piano-key', this.colorClassName()];
+
+    if (this.props.isSelected)
+      names.push('selected');
+
+    if (this.props.isFromScale)
+      names.push('scale');
+
+    return names.join(' ');
   }
 
   onClick() {

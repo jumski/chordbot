@@ -64,7 +64,8 @@ export default class ChordBot extends Component {
     const scale = tonal.scale(`${this.state.selectedNote} ${this.state.scale}`);
     const octave = this.state.octave;
 
-    return scale.map(note => `${note}${octave}`);
+console.log("scale = ", scale);
+    return scale.map(note => `${note}${octave}`).map(tonal.note.simplify);
   }
 
   selectNote(note) {

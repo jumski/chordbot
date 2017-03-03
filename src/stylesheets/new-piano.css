@@ -1,6 +1,10 @@
+body {
+  background-color: #cecece;
+}
+
 .piano-key {
   display: inline-block;
-  opacity: 0.3;
+  opacity: 0.1;
   cursor: pointer;
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -58,5 +62,5 @@
   opacity: 1;
 }
 .piano-key.selected {
-  background-color: violet;
+  background-color: #ffdbff;
 }

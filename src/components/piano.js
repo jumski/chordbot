@@ -19,12 +19,11 @@ export default class Piano extends Component {
   }
 
   isSelected(note) {
-    return note === this.props.selectedNote;
+    return tonal.note.simplify(note) === tonal.note.simplify(this.props.selectedNote);
   }
 
   isFromScale(note) {
-    // console.log("this.props.scaleNotes = ", this.props.scaleNotes);
-    return this.props.scaleNotes.indexOf(note) > -1;
+    return this.props.scaleNotes.indexOf(tonal.note.simplify(note)) > -1;
   }
 
   isFromChord(note) {
