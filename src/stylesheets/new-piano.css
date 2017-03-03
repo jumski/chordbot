@@ -2,11 +2,21 @@
   display: inline-block;
 }
 
+.piano-key .note-name {
+  font-size: 8px;
+  position: absolute;
+  color: grey;
+}
+
 .piano-key.white {
   border: 1px solid black;
   background-color: white;
   width: 50px;
   height: 300px;
+}
+.piano-key.white .note-name {
+  top: 270px;
+  margin-left: 15px;
 }
 
 .piano-key.black {
@@ -16,4 +26,7 @@
   height: 200px;
   position: absolute;
   margin-left: -15px;
+}
+.piano-key.black .note-name {
+  top: 170px;
 }

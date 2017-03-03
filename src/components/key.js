@@ -18,7 +18,7 @@ export default class Key extends Component {
 
   render() {
     return <span className={this.classNames()}>
-      <span className="noteName">{this.props.note}</span>
+      <span className="note-name">{this.props.note}</span>
     </span>;
   }
 }
