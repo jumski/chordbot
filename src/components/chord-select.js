@@ -9,7 +9,6 @@ export default class ChordSelect extends Component {
   }
 
   render() {
-    console.log("'omghax' = ", 'omghax');
-    return <select> {this.selectOptions()} </select>;
+    return <select onChange={this.props.onChange}> {this.selectOptions()} </select>;
   }
 }
