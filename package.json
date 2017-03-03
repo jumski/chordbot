@@ -4,5 +4,9 @@
   "description": "App for learning/visualising/finding/playing chords and other musical stuff",
   "main": "index.js",
   "author": "Wojtek Majewski <jumski@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "2"
+  }
 }
