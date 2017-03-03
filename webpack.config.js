@@ -1,15 +1,23 @@
 const path = require('path');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
     app: './app.js',
   },
   output: {
-		path: path.resolve(__dirname, './dist/assets'),
+    path: path.resolve(__dirname, './dist/assets'),
     filename: '[name].bundle.js',
-		publicPath: '/assets',
+    publicPath: '/assets',
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    })
+  ],
   devServer: {
     contentBase: path.resolve(__dirname, './src'),
   },
@@ -27,6 +35,11 @@ module.exports = {
       {
 	test: /\.css$/,
 	use: ['style-loader', 'css-loader'],
+      },
+
+      {
+        test: /\.html$/,
+        loader: ["raw-loader"],
       },
     ],
   },
