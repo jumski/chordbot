@@ -5,17 +5,49 @@ import pianoStyles from '../stylesheets/new-piano.css';
 window.tonal=tonal;
 
 export default class Piano extends Component {
-  keys(baseOctave = 3) {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      baseOctave: 3
+    };
+  }
+
+  keys(baseOctave) {
     const notesRange = `C${baseOctave}, C${baseOctave + 2}`;
 
     return tonal.range.chromatic(notesRange).map(note => {
-      return <Key note={note}/>;
+      return <Key key={note} note={note}/>;
     });
+  }
+
+  octaveUp() {
+    if (this.isMaxOctave()) return;
+
+    this.setState({ baseOctave: this.state.baseOctave + 1 });
+  }
+
+  octaveDown() {
+    if (this.isMinOctave()) return;
+
+    this.setState({ baseOctave: this.state.baseOctave - 1 });
+  }
+
+  isMaxOctave() {
+    return this.state.baseOctave >= 8;
+  }
+
+  isMinOctave() {
+    return this.state.baseOctave <= 0;
   }
 
   render() {
     return <div>
-      {this.keys()}
+      <div className="keys">{this.keys(this.state.baseOctave)}</div>
+      <div className="menu">
+        <button disabled={this.isMinOctave()} onClick={this.octaveDown.bind(this)}>Octave Down</button>
+        <button disabled={this.isMaxOctave()} onClick={this.octaveUp.bind(this)}>Octave Up</button>
+      </div>
     </div>;
     // return <ul className="piano">
     //   <li className="key">
