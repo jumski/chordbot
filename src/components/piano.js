@@ -5,7 +5,7 @@ import pianoStyles from '../stylesheets/new-piano.css';
 window.tonal=tonal;
 
 export default class Piano extends Component {
-  keys(octave) {
+  keys() {
     return this.props.notes.map(note => {
       return <Key
         onClick={this.props.onKeyClick}
@@ -31,7 +31,7 @@ export default class Piano extends Component {
 
   render() {
     return <div className="keys">
-      {this.keys(this.props.octave)}
+      {this.keys()}
     </div>;
   }
 }
