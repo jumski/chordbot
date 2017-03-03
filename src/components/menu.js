@@ -8,6 +8,8 @@ export default class Menu extends Component {
       <div>
         <button disabled={this.props.isMinOctave} onClick={this.props.octaveDown}>Octave Down</button>
         <button disabled={this.props.isMaxOctave} onClick={this.props.octaveUp}>Octave Up</button>
+
+        current octave = {this.props.octave}
       </div>
 
       <div>
