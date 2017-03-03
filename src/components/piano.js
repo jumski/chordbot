@@ -9,17 +9,23 @@ export default class Piano extends Component {
   constructor(props) {
     super(props);
 
+    const baseOctave = 3;
     this.state = {
-      baseOctave: 3,
+      baseOctave: baseOctave,
       chord: '5',
       scale: 'major',
+      currentNote: this.notes(baseOctave)[0]
     };
   }
 
-  keys(baseOctave) {
-    const notesRange = `C${baseOctave}, C${baseOctave + 2}`;
+  notes(octave = this.state.baseOctave) {
+    const notesRange = `C${octave}, C${octave + 2}`;
 
-    return tonal.range.chromatic(notesRange).map(note => {
+    return tonal.range.chromatic(notesRange);
+  }
+
+  keys(baseOctave) {
+    return this.notes().map(note => {
       return <Key key={note} note={note}/>;
     });
   }
