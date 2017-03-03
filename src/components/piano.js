@@ -8,6 +8,7 @@ export default class Piano extends Component {
   keys(octave) {
     return this.props.notes.map(note => {
       return <Key
+        onClick={this.props.onKeyClick}
         isSelected={this.isSelected(note)}
         isFromScale={this.isFromScale(note)}
         isFromChord={this.isFromChord(note)}

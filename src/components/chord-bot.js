@@ -50,13 +50,17 @@ export default class ChordBot extends Component {
   }
 
   scaleNotes() {
-  console.log("this.state.selectedNote = ", this.state.selectedNote);
     return tonal.scale(`${this.state.selectedNote} ${this.state.scale}`);
+  }
+
+  selectNote(note) {
+    this.setState({selectedNote: note});
   }
 
   render() {
     return <div>
       <Piano
+        onKeyClick={this.selectNote.bind(this)}
         notes={this.notes()}
         scaleNotes={this.scaleNotes()}
         chordNotes={[]}

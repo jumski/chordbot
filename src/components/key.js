@@ -26,8 +26,12 @@ export default class Key extends Component {
     return ['piano-key', this.colorClassName(), this.selectedClassName()].join(' ');
   }
 
+  onClick() {
+    this.props.onClick(this.props.note);
+  }
+
   render() {
-    return <span className={this.classNames()}>
+    return <span onClick={this.onClick.bind(this)} className={this.classNames()}>
       <span className="note-name">{this.props.note}</span>
     </span>;
   }
