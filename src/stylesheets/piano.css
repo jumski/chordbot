@@ -57,6 +57,11 @@
   border-bottom-width: 3px;
   top: 0;
 }
+.key .black-key.highlighted,
+.key .white-key.highlighted {
+  background: red;
+}
+
 @media (max-width: 767px) {
   .key {
     width: 8%;
