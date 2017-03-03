@@ -11,7 +11,7 @@ export default class Piano extends Component {
 
     this.state = {
       baseOctave: 3,
-      chord: '4',
+      chord: '5',
     };
   }
 
@@ -59,7 +59,7 @@ export default class Piano extends Component {
         </div>
 
         <div>
-          <ChordSelect onChange={this.setChord.bind(this)}/>
+          <ChordSelect selected={this.state.chord} onChange={this.setChord.bind(this)}/>
         </div>
       </div>
     </div>;
