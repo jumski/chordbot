@@ -1,5 +1,6 @@
 .piano-key {
   display: inline-block;
+  opacity: 0.3;
   cursor: pointer;
   -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
@@ -51,6 +52,9 @@
 
 .piano-key.chord {
   background-color: pink;
+}
+.piano-key.scale {
+  opacity: 1;
 }
 .piano-key.selected {
   background-color: violet;

@@ -13,10 +13,11 @@ export default class Key extends Component {
   }
 
   selectedClassName() {
-    const note = this.props.note;
-
-    if (note == this.props.selectedNote)
+    if (this.props.isSelected)
       return 'selected';
+
+    if (this.props.isHighlighted)
+      return 'highlighted';
 
     return '';
   }
