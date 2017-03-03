@@ -9,45 +9,45 @@ export default class Piano extends Component {
   constructor(props) {
     super(props);
 
-    const baseOctave = 3;
+    const currentOctave = 3;
     this.state = {
-      baseOctave: baseOctave,
+      currentOctave: currentOctave,
       chord: '5',
       scale: 'major',
-      currentNote: this.notes(baseOctave)[0]
+      selectedNote: this.notes(currentOctave)[0]
     };
   }
 
-  notes(octave = this.state.baseOctave) {
+  notes(octave = this.state.currentOctave) {
     const notesRange = `C${octave}, C${octave + 2}`;
 
     return tonal.range.chromatic(notesRange);
   }
 
-  keys(baseOctave) {
+  keys(currentOctave) {
     return this.notes().map(note => {
-      return <Key key={note} note={note}/>;
+      return <Key selectedNote={this.state.selectedNote} key={note} note={note}/>;
     });
   }
 
   octaveUp() {
     if (this.isMaxOctave()) return;
 
-    this.setState({ baseOctave: this.state.baseOctave + 1 });
+    this.setState({ currentOctave: this.state.currentOctave + 1 });
   }
 
   octaveDown() {
     if (this.isMinOctave()) return;
 
-    this.setState({ baseOctave: this.state.baseOctave - 1 });
+    this.setState({ currentOctave: this.state.currentOctave - 1 });
   }
 
   isMaxOctave() {
-    return this.state.baseOctave >= 8;
+    return this.state.currentOctave >= 8;
   }
 
   isMinOctave() {
-    return this.state.baseOctave <= 0;
+    return this.state.currentOctave <= 0;
   }
 
   setChord(event) {
@@ -60,7 +60,7 @@ export default class Piano extends Component {
 
   render() {
     return <div>
-      <div className="keys">{this.keys(this.state.baseOctave)}</div>
+      <div className="keys">{this.keys(this.state.currentOctave)}</div>
       <div className="menu">
         <div>
           <button disabled={this.isMinOctave()} onClick={this.octaveDown.bind(this)}>Octave Down</button>

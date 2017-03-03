@@ -12,8 +12,17 @@ export default class Key extends Component {
     }
   }
 
+  selectedClassName() {
+    const note = this.props.note;
+
+    if (note == this.props.selectedNote)
+      return 'selected';
+
+    return '';
+  }
+
   classNames() {
-    return ['piano-key', this.colorClassName()].join(' ');
+    return ['piano-key', this.colorClassName(), this.selectedClassName()].join(' ');
   }
 
   render() {

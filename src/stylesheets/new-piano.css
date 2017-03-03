@@ -49,10 +49,9 @@
   color: black;
 }
 
-.piano-key:active {
-  background-color: red;
+.piano-key.chord {
+  background-color: pink;
 }
-
-.piano-key.highlighted {
-  background-color: yellow;
+.piano-key.selected {
+  background-color: violet;
 }
