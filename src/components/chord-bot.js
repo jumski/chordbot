@@ -24,13 +24,24 @@ export default class ChordBot extends Component {
   octaveUp() {
     if (this.isMaxOctave()) return;
 
-    this.setState({ octave: this.state.octave + 1 });
+    this.changeOctave(+1);
+  }
+
+  changeOctave(delta) {
+    const interval = tonal.ivl.fromSemitones(delta * 12);
+    const newOctave = this.state.octave + delta;
+    const newSelectedNote = tonal.transpose(this.state.selectedNote, interval);
+
+    this.setState({
+      octave: newOctave,
+      selectedNote: newSelectedNote
+    });
   }
 
   octaveDown() {
     if (this.isMinOctave()) return;
 
-    this.setState({ octave: this.state.octave - 1 });
+    this.changeOctave(-1);
   }
 
   isMaxOctave() {
@@ -50,7 +61,10 @@ export default class ChordBot extends Component {
   }
 
   scaleNotes() {
-    return tonal.scale(`${this.state.selectedNote} ${this.state.scale}`);
+    const scale = tonal.scale(`${this.state.selectedNote} ${this.state.scale}`);
+    const octave = this.state.octave;
+
+    return scale.map(note => `${note}${octave}`);
   }
 
   selectNote(note) {
