@@ -50,8 +50,16 @@ export default class ChordBot extends Component {
       const { chord, midiOutput } = this.state;
       const notes = chordNotes({ chord: chord, rootNote: note })
 
-      midiOutput.playNote(notes, "all", { duration: 1000 });
+      // try {
+        midiOutput.playNote(notes, "all", { duration: 1000 });
+      // } catch(err) {
+      //   console.log(`Cannot play notes ${notes.join(', ')} because of error: ${err}`);
+      // }
     }
+  }
+
+  handleNoteOn(note) {
+    this.selectRootNote(`${note.name}${note.octave}`);
   }
 
   render() {
@@ -89,6 +97,7 @@ export default class ChordBot extends Component {
         rootNote={rootNote}
         setMidiOut={this.handleSet('midiOutput')}
         setMidiIn={this.handleSet('midiInput')}
+        onNoteOn={this.handleNoteOn.bind(this)}
       />
     </div>;
   }

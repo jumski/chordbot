@@ -17,6 +17,9 @@ export default class MidiConfig extends Component {
       const inputName = selectedOption.value;
       const input = WebMidi.getInputByName(inputName);
       this.props.setMidiIn(input);
+
+      input.addListener('noteon', "all", e => this.props.onNoteOn(e.note));
+      // input.addListener('noteoff', "all", this.props.handleNoteOff(e.note));
     }
   }
 
