@@ -22,9 +22,25 @@ $note-name-font-size: 6px
   -moz-user-select: none
   -ms-user-select: none
   user-select: none
+  position: relative
+  text-align: center
 
   .info
+    display: flex
+    flex-direction: column
+    bottom: 10px
     position: absolute
+    width: 100%
+
+  .badge
+    display: none
+    border-radius: 50%
+    height: 15px
+    width: 15px;
+    background-color: red
+    position: absolute
+    left: 50%
+    bottom: 30px
 
   .note-name
     font-size: $note-name-font-size
@@ -39,11 +55,8 @@ $note-name-font-size: 6px
     &.white:last-child
       border-right: 1px solid black
 
-    .info
-      top: $white-key-height - $note-name-padding
     .note-name
       color: lighten(black, 20%)
-      margin-left: $white-key-width / 4
 
     &.scale
       background-color: $white-key-color
@@ -58,8 +71,9 @@ $note-name-font-size: 6px
     margin-left: -($black-key-width / 2)
     z-index: 2
 
-    .info
-      top: $black-key-height - $note-name-padding
+    // .info
+    //   margin-left: $black-key-width / 4
+
     .note-name
       color: darken(white, 20%)
 
@@ -74,4 +88,7 @@ $note-name-font-size: 6px
     .note-name
       color: red
       font-weight: bold
+
+    .badge
+      display: block
 

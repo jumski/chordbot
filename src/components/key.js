@@ -31,6 +31,7 @@ export default class Key extends Component {
   render() {
     return <div onClick={this.onClick.bind(this)} className={this.classNames()}>
       <div className="info">
+        <div className="badge"></div>
         <span className="note-name">{this.props.note}</span>
       </div>
     </div>;
