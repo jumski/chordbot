@@ -56,8 +56,6 @@ export default class ChordBot extends Component {
     const transposedScale = tonal.map(tonal.transpose(interval), baseScale);
 
     return transposedScale.map(tonal.note.simplify);
-
-    return transposedScale;
   }
 
   selectNote(note) {
