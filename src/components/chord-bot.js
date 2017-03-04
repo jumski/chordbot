@@ -49,19 +49,24 @@ export default class ChordBot extends Component {
     this.setState({rootNote: note});
 
     if (WebMidi.enabled && this.state.midiOutput) {
-      this.state.midiOutput.playNote(this.chordNotes(), "all", { duration: 5000 });
+      const { chord, midiOutput } = this.state;
+      const notes = chordNotes({ chord: chord, rootNote: note })
+
+      midiOutput.playNote(notes, "all", { duration: 1000 });
     }
   }
 
   render() {
+    const { scale, chord, octave, rootNote } = this.state;
+
     return <div>
       <Piano
         onKeyClick={this.selectRootNote.bind(this)}
-        notes={buildChromaticNotes(this.state.octave)}
+        notes={buildChromaticNotes(octave)}
         scaleNotes={scaleNotes(this.state)}
         chordNotes={chordNotes(this.state)}
-        octave={this.state.octave}
-        rootNote={this.state.rootNote}
+        octave={octave}
+        rootNote={rootNote}
       />
 
       <Menu
@@ -71,18 +76,19 @@ export default class ChordBot extends Component {
         octaveDown={this.handleChangeOctave(-1)}
         setScale={this.handleSet('scale')}
         setChord={this.handleSet('chord')}
-        scale={this.state.scale}
-        chord={this.state.chord}
+        scale={scale}
+        chord={chord}
       />
 
       <div className="stats">
-        octave = {this.state.octave} <br/>
-        note = {this.state.rootNote} <br/>
+        octave = {octave} <br/>
+        note = {rootNote} <br/>
         scaleNotes = {scaleNotes(this.state).join(' ')}<br/>
         chordNotes = {chordNotes(this.state).join(' ')}<br/>
       </div>
 
       <MidiConfig
+        rootNote={rootNote}
         setMidiOut={this.handleSet('midiOutput')}
         setMidiIn={this.handleSet('midiInput')}
       />
