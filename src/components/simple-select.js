@@ -9,6 +9,6 @@ export default class SimpleSelect extends Component {
   }
 
   render() {
-    return <select defaultValue={this.props.selected} value={this.props.selected} onChange={this.props.onChange}> {this.selectOptions()} </select>;
+    return <select value={this.props.selected} onChange={this.props.onChange}> {this.selectOptions()} </select>;
   }
 }
