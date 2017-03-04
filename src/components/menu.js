@@ -13,11 +13,11 @@ export default class Menu extends Component {
       </div>
 
       <div>
-        <SimpleSelect values={tonal.chord.names()} selected={this.props.chord} onChange={this.props.setChord}/>
+        <SimpleSelect values={tonal.chord.names().sort()} selected={this.props.chord} onChange={this.props.setChord}/>
       </div>
 
       <div>
-        <SimpleSelect values={tonal.scale.names()} selected={this.props.scale} onChange={this.props.setScale}/>
+        <SimpleSelect values={tonal.scale.names().sort()} selected={this.props.scale} onChange={this.props.setScale}/>
       </div>
     </div>
   }

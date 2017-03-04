@@ -11,7 +11,7 @@ export default class ChordBot extends Component {
       octave: octave,
       chord: '5',
       scale: 'major',
-      selectedNote: 'C',
+      selectedNote: `C${octave}`,
     };
   }
 
@@ -79,6 +79,8 @@ return [];
         octaveDown={this.octaveDown.bind(this)}
         setScale={this.setScale.bind(this)}
         setChord={this.setChord.bind(this)}
+        scale={this.state.scale}
+        chord={this.state.chord}
       />
 
     <div className="stats">
