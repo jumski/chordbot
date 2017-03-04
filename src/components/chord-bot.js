@@ -50,11 +50,11 @@ export default class ChordBot extends Component {
       const { chord, midiOutput } = this.state;
       const notes = chordNotes({ chord: chord, rootNote: note })
 
-      // try {
+      try {
         midiOutput.playNote(notes, "all", { duration: 1000 });
-      // } catch(err) {
-      //   console.log(`Cannot play notes ${notes.join(', ')} because of error: ${err}`);
-      // }
+      } catch(err) {
+        console.log(`Cannot play notes ${notes.join(', ')} because of error: ${err}`);
+      }
     }
   }
 

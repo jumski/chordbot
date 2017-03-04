@@ -19,7 +19,6 @@ export default class MidiConfig extends Component {
       this.props.setMidiIn(input);
 
       input.addListener('noteon', "all", e => this.props.onNoteOn(e.note));
-      // input.addListener('noteoff', "all", this.props.handleNoteOff(e.note));
     }
   }
 
