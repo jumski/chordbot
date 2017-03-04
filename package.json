@@ -28,6 +28,7 @@
   "dependencies": {
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
-    "tonal": "^0.69.0"
+    "tonal": "^0.69.0",
+    "webmidi": "^2.0.0-rc.4"
   }
 }

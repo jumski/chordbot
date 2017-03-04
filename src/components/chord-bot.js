@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Piano from './piano';
 import Menu from './menu';
+import MidiConfig from './midi-config';
+import WebMidi from 'webmidi';
 
 export default class ChordBot extends Component {
   constructor(props) {
@@ -67,6 +69,14 @@ export default class ChordBot extends Component {
     this.setState({rootNote: note});
   }
 
+  setMidiIn(input) {
+    this.setState({midiInput: input});
+  }
+
+  setMidiOut(output) {
+    this.setState({midiOutput: output});
+  }
+
   render() {
     return <div>
       <Piano
@@ -95,6 +105,11 @@ export default class ChordBot extends Component {
         scaleNotes = {this.scaleNotes().join(' ')}<br/>
         chord = {this.chordNotes().join(' ')}<br/>
       </div>
+
+      <MidiConfig
+        setMidiOut={this.setMidiOut.bind(this)}
+        setMidiIn={this.setMidiIn.bind(this)}
+      />
     </div>;
   }
 }
