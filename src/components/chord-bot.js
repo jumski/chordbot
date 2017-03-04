@@ -67,6 +67,10 @@ export default class ChordBot extends Component {
 
   selectNote(note) {
     this.setState({rootNote: note});
+
+    if (WebMidi.enabled && this.state.midiOutput) {
+      this.state.midiOutput.playNote(this.chordNotes(), "all", { duration: 5000 });
+    }
   }
 
   setMidiIn(input) {
