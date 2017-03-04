@@ -40,7 +40,7 @@ $note-name-font-size: 6px
     .note-name
       color: lighten(black, 20%)
       top: $white-key-height - $note-name-padding
-      margin-left: $white-key-width / 2
+      margin-left: $white-key-width / 4
 
     &.scale
       background-color: $white-key-color
@@ -53,7 +53,7 @@ $note-name-font-size: 6px
     height: $black-key-height
     position: absolute
     margin-left: -($black-key-width / 2)
-    z-index: 23
+    z-index: 2
 
     .note-name
       color: darken(white, 20%)
@@ -67,7 +67,7 @@ $note-name-font-size: 6px
     background-color: lighten(grey, 10%)
 
   &.selected
-    border-color: red
-    border-width: 3px
-    border-right: 3px solid red
+    .note-name
+      color: red
+      font-weight: bold
 
