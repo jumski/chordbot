@@ -21,6 +21,9 @@ export default class Key extends Component {
     if (this.props.isFromScale)
       classes.push('scale');
 
+    if (this.props.isFromChord)
+      classes.push('chord');
+
     return classes.join(' ');
   }
 

@@ -50,10 +50,18 @@ export default class ChordBot extends Component {
   }
 
   scaleNotes() {
-    const toScale = tonal.scale.get(this.state.scale);
-    const scaleNotes = toScale(this.state.selectedNote);
+    const { scale, selectedNote } = this.state;
+    const scaleNotes = tonal.scale.get(scale, selectedNote);
 
     return scaleNotes.map(tonal.note.simplify);
+  }
+
+  chordNotes() {
+    const { chord, selectedNote } = this.state;
+    const chordNotes = tonal.chord.get(chord, selectedNote);
+    console.log("chordNotes = ", chordNotes);
+
+    return chordNotes.map(tonal.note.simplify);
   }
 
   selectNote(note) {
@@ -66,7 +74,7 @@ export default class ChordBot extends Component {
         onKeyClick={this.selectNote.bind(this)}
         notes={this.notes()}
         scaleNotes={this.scaleNotes()}
-        chordNotes={[]}
+        chordNotes={this.chordNotes()}
         octave={this.state.octave}
         selectedNote={this.state.selectedNote}
       />
@@ -85,7 +93,8 @@ export default class ChordBot extends Component {
       <div className="stats">
         octave = {this.state.octave} <br/>
         note = {this.state.selectedNote} <br/>
-        scaleNotes = {this.scaleNotes().join(' ')}
+        scaleNotes = {this.scaleNotes().join(' ')}<br/>
+        chord = {this.chordNotes().join(' ')}<br/>
       </div>
     </div>;
   }

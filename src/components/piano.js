@@ -27,6 +27,7 @@ export default class Piano extends Component {
   }
 
   isFromChord(note) {
+    return this.props.chordNotes.indexOf(tonal.note.simplify(note)) > -1;
   }
 
   render() {
