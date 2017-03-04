@@ -40,9 +40,7 @@ export default class ChordBot extends Component {
   }
 
   handleSet(key) {
-    return (value) => {
-      this.setState({ [key]: value });
-    };
+    return (value) => this.setState({ [key]: value });
   }
 
   selectRootNote(note) {
