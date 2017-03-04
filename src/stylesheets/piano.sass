@@ -23,9 +23,11 @@ $note-name-font-size: 6px
   -ms-user-select: none
   user-select: none
 
+  .info
+    position: absolute
+
   .note-name
     font-size: $note-name-font-size
-    position: absolute
 
   &.white
     border: 1px solid black
@@ -37,9 +39,10 @@ $note-name-font-size: 6px
     &.white:last-child
       border-right: 1px solid black
 
+    .info
+      top: $white-key-height - $note-name-padding
     .note-name
       color: lighten(black, 20%)
-      top: $white-key-height - $note-name-padding
       margin-left: $white-key-width / 4
 
     &.scale
@@ -55,9 +58,10 @@ $note-name-font-size: 6px
     margin-left: -($black-key-width / 2)
     z-index: 2
 
+    .info
+      top: $black-key-height - $note-name-padding
     .note-name
       color: darken(white, 20%)
-      top: $black-key-height - $note-name-padding
 
     &.scale
       background-color: $black-key-color

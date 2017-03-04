@@ -30,7 +30,9 @@ export default class Key extends Component {
 
   render() {
     return <div onClick={this.onClick.bind(this)} className={this.classNames()}>
-      <span className="note-name">{this.props.note}</span>
+      <div className="info">
+        <span className="note-name">{this.props.note}</span>
+      </div>
     </div>;
   }
 }
