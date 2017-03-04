@@ -31,12 +31,14 @@ module.exports = {
           options: { presets: ['es2015', 'react'] }
         }],
       },
-
       {
 	test: /\.css$/,
 	use: ['style-loader', 'css-loader'],
       },
-
+      {
+        test: /\.s(c|a)ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      },
       {
         test: /\.html$/,
         loader: ["raw-loader"],
