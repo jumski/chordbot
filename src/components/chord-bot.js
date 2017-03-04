@@ -3,6 +3,8 @@ import Piano from './piano';
 import Menu from './menu';
 import MidiConfig from './midi-config';
 import WebMidi from 'webmidi';
+import tonal from 'tonal';
+import { buildChromaticNotes, scaleNotes, chordNotes } from '../helpers/music';
 
 export default class ChordBot extends Component {
   constructor(props) {
@@ -15,12 +17,6 @@ export default class ChordBot extends Component {
       scale: 'major',
       rootNote: `C${octave}`,
     };
-  }
-
-  notes(octave = this.state.octave) {
-    const notesRange = `C${octave}, C${octave + 2}`;
-
-    return tonal.range.chromatic(notesRange);
   }
 
   octaveUp() {
@@ -51,20 +47,6 @@ export default class ChordBot extends Component {
     this.setState({ scale: event.target.value });
   }
 
-  scaleNotes() {
-    const { scale, rootNote } = this.state;
-    const scaleNotes = tonal.scale.get(scale, rootNote);
-
-    return scaleNotes.map(tonal.note.simplify);
-  }
-
-  chordNotes() {
-    const { chord, rootNote } = this.state;
-    const chordNotes = tonal.chord.get(chord, rootNote);
-
-    return chordNotes.map(tonal.note.simplify);
-  }
-
   selectRootNote(note) {
     this.setState({rootNote: note});
 
@@ -85,9 +67,9 @@ export default class ChordBot extends Component {
     return <div>
       <Piano
         onKeyClick={this.selectRootNote.bind(this)}
-        notes={this.notes()}
-        scaleNotes={this.scaleNotes()}
-        chordNotes={this.chordNotes()}
+        notes={buildChromaticNotes(this.state.octave)}
+        scaleNotes={scaleNotes(this.state)}
+        chordNotes={chordNotes(this.state)}
         octave={this.state.octave}
         rootNote={this.state.rootNote}
       />
@@ -106,8 +88,8 @@ export default class ChordBot extends Component {
       <div className="stats">
         octave = {this.state.octave} <br/>
         note = {this.state.rootNote} <br/>
-        scaleNotes = {this.scaleNotes().join(' ')}<br/>
-        chord = {this.chordNotes().join(' ')}<br/>
+        scaleNotes = {scaleNotes(this.state).join(' ')}<br/>
+        chordNotes = {chordNotes(this.state).join(' ')}<br/>
       </div>
 
       <MidiConfig
