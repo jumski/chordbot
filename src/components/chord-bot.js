@@ -16,6 +16,7 @@ export default class ChordBot extends Component {
       chord: '5',
       scale: 'major',
       rootNote: `C${octave}`,
+      octavesCount: 2,
     };
   }
 
@@ -68,7 +69,7 @@ export default class ChordBot extends Component {
     return <div>
       <Piano
         onKeyClick={this.selectRootNote.bind(this)}
-        notes={buildChromaticNotes(octave)}
+        notes={buildChromaticNotes(octave, this.state.octavesCount)}
         scaleNotes={scaleNotes(this.state)}
         chordNotes={chordNotes(this.state)}
         octave={octave}
@@ -82,6 +83,7 @@ export default class ChordBot extends Component {
         octaveDown={this.handleChangeOctave(-1)}
         setScale={this.handleSet('scale')}
         setChord={this.handleSet('chord')}
+        setOctavesCount={this.handleSet('octavesCount')}
         scale={scale}
         chord={chord}
       />

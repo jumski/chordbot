@@ -11,11 +11,19 @@ export default class Menu extends Component {
     this.props.setScale(event.target.value);
   }
 
+  setOctavesCount(event) {
+    this.props.setOctavesCount(parseInt(event.target.value, 10));
+  }
+
   render() {
     return <div className="menu">
       <div>
         <button disabled={this.props.isMinOctave} onClick={this.props.octaveDown}>Octave Down</button>
         <button disabled={this.props.isMaxOctave} onClick={this.props.octaveUp}>Octave Up</button>
+      </div>
+
+      <div>
+        <SimpleSelect values={[2,3,4]} selected={2} onChange={this.setOctavesCount.bind(this)}/>
       </div>
 
       <div>

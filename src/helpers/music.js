@@ -1,7 +1,7 @@
 import tonal from 'tonal';
 
-export function buildChromaticNotes(octave) {
-  const notesRange = `C${octave}, C${octave + 2}`;
+export function buildChromaticNotes(octave, octavesCount) {
+  const notesRange = `C${octave}, C${octave + octavesCount}`;
 
   return tonal.range.chromatic(notesRange);
 }
