@@ -65,7 +65,7 @@ export default class ChordBot extends Component {
     return chordNotes.map(tonal.note.simplify);
   }
 
-  selectNote(note) {
+  selectRootNote(note) {
     this.setState({rootNote: note});
 
     if (WebMidi.enabled && this.state.midiOutput) {
@@ -84,7 +84,7 @@ export default class ChordBot extends Component {
   render() {
     return <div>
       <Piano
-        onKeyClick={this.selectNote.bind(this)}
+        onKeyClick={this.selectRootNote.bind(this)}
         notes={this.notes()}
         scaleNotes={this.scaleNotes()}
         chordNotes={this.chordNotes()}
