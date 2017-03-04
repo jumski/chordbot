@@ -13,15 +13,15 @@ export default class Key extends Component {
   }
 
   classNames() {
-    const names = ['piano-key', this.colorClassName()];
+    const classes = ['piano-key', this.colorClassName()];
 
     if (this.props.isSelected)
-      names.push('selected');
+      classes.push('selected');
 
     if (this.props.isFromScale)
-      names.push('scale');
+      classes.push('scale');
 
-    return names.join(' ');
+    return classes.join(' ');
   }
 
   onClick() {
@@ -29,8 +29,8 @@ export default class Key extends Component {
   }
 
   render() {
-    return <span onClick={this.onClick.bind(this)} className={this.classNames()}>
+    return <div onClick={this.onClick.bind(this)} className={this.classNames()}>
       <span className="note-name">{this.props.note}</span>
-    </span>;
+    </div>;
   }
 }
