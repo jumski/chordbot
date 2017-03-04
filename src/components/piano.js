@@ -19,7 +19,7 @@ export default class Piano extends Component {
   }
 
   isSelected(note) {
-    return tonal.note.simplify(note) === tonal.note.simplify(this.props.selectedNote);
+    return tonal.note.simplify(note) === tonal.note.simplify(this.props.rootNote);
   }
 
   isFromScale(note) {

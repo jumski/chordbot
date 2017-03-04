@@ -11,7 +11,7 @@ export default class ChordBot extends Component {
       octave: octave,
       chord: '5',
       scale: 'major',
-      selectedNote: `C${octave}`,
+      rootNote: `C${octave}`,
     };
   }
 
@@ -50,21 +50,21 @@ export default class ChordBot extends Component {
   }
 
   scaleNotes() {
-    const { scale, selectedNote } = this.state;
-    const scaleNotes = tonal.scale.get(scale, selectedNote);
+    const { scale, rootNote } = this.state;
+    const scaleNotes = tonal.scale.get(scale, rootNote);
 
     return scaleNotes.map(tonal.note.simplify);
   }
 
   chordNotes() {
-    const { chord, selectedNote } = this.state;
-    const chordNotes = tonal.chord.get(chord, selectedNote);
+    const { chord, rootNote } = this.state;
+    const chordNotes = tonal.chord.get(chord, rootNote);
 
     return chordNotes.map(tonal.note.simplify);
   }
 
   selectNote(note) {
-    this.setState({selectedNote: note});
+    this.setState({rootNote: note});
   }
 
   render() {
@@ -75,7 +75,7 @@ export default class ChordBot extends Component {
         scaleNotes={this.scaleNotes()}
         chordNotes={this.chordNotes()}
         octave={this.state.octave}
-        selectedNote={this.state.selectedNote}
+        rootNote={this.state.rootNote}
       />
 
       <Menu
@@ -91,7 +91,7 @@ export default class ChordBot extends Component {
 
       <div className="stats">
         octave = {this.state.octave} <br/>
-        note = {this.state.selectedNote} <br/>
+        note = {this.state.rootNote} <br/>
         scaleNotes = {this.scaleNotes().join(' ')}<br/>
         chord = {this.chordNotes().join(' ')}<br/>
       </div>
