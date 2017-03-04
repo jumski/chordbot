@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Key from './key';
 import tonal from 'tonal';
-import pianoStyles from '../stylesheets/new-piano.sass';
+import pianoStyles from '../stylesheets/piano.sass';
 window.tonal=tonal;
 
 export default class Piano extends Component {
