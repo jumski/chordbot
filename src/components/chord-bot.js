@@ -19,16 +19,16 @@ export default class ChordBot extends Component {
     };
   }
 
-  octaveUp() {
-    if (this.isMaxOctave()) return;
+  handleChangeOctave(delta) {
+    return () => {
+      if (!this.canChangeOctave(delta)) return;
 
-    this.setState({ octave: this.state.octave + 1 });
+      this.setState({ octave: this.state.octave + delta });
+    };
   }
 
-  octaveDown() {
-    if (this.isMinOctave()) return;
-
-    this.setState({ octave: this.state.octave - 1 });
+  canChangeOctave(delta) {
+    return (delta > 0 && !this.isMaxOctave()) || (delta < 0 && !this.isMinOctave());
   }
 
   isMaxOctave() {
@@ -39,12 +39,10 @@ export default class ChordBot extends Component {
     return this.state.octave <= 0;
   }
 
-  setChord(event) {
-    this.setState({ chord: event.target.value });
-  }
-
-  setScale(event) {
-    this.setState({ scale: event.target.value });
+  handleSet(key) {
+    return (value) => {
+      this.setState({ [key]: value });
+    };
   }
 
   selectRootNote(note) {
@@ -53,14 +51,6 @@ export default class ChordBot extends Component {
     if (WebMidi.enabled && this.state.midiOutput) {
       this.state.midiOutput.playNote(this.chordNotes(), "all", { duration: 5000 });
     }
-  }
-
-  setMidiIn(input) {
-    this.setState({midiInput: input});
-  }
-
-  setMidiOut(output) {
-    this.setState({midiOutput: output});
   }
 
   render() {
@@ -77,10 +67,10 @@ export default class ChordBot extends Component {
       <Menu
         isMinOctave={this.isMinOctave()}
         isMaxOctave={this.isMaxOctave()}
-        octaveUp={this.octaveUp.bind(this)}
-        octaveDown={this.octaveDown.bind(this)}
-        setScale={this.setScale.bind(this)}
-        setChord={this.setChord.bind(this)}
+        octaveUp={this.handleChangeOctave(+1)}
+        octaveDown={this.handleChangeOctave(-1)}
+        setScale={this.handleSet('scale')}
+        setChord={this.handleSet('chord')}
         scale={this.state.scale}
         chord={this.state.chord}
       />
@@ -93,8 +83,8 @@ export default class ChordBot extends Component {
       </div>
 
       <MidiConfig
-        setMidiOut={this.setMidiOut.bind(this)}
-        setMidiIn={this.setMidiIn.bind(this)}
+        setMidiOut={this.handleSet('midiOutput')}
+        setMidiIn={this.handleSet('midiInput')}
       />
     </div>;
   }
