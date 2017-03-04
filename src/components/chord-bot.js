@@ -50,11 +50,15 @@ export default class ChordBot extends Component {
   }
 
   scaleNotes() {
-    const scale = tonal.scale(`${this.state.selectedNote} ${this.state.scale}`);
     const octave = this.state.octave;
+    const interval = tonal.interval(`C0`, this.state.selectedNote);
+    const pcScale = tonal.scale(`C${octave} ${this.state.scale}`);
+    const baseScale = pcScale.map(n => `${n}0`);
+    const transposedScale = tonal.map(tonal.transpose(interval), baseScale);
 
-return [];
-    // return scale.map(note => `${note}${octave}`).map(tonal.note.simplify);
+    return transposedScale.map(tonal.note.simplify);
+
+    return transposedScale;
   }
 
   selectNote(note) {
