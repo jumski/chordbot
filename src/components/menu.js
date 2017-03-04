@@ -10,11 +10,9 @@ export default class Menu extends Component {
         <button disabled={this.props.isMaxOctave} onClick={this.props.octaveUp}>Octave Up</button>
       </div>
 
-      {/*
       <div>
         <SimpleSelect values={tonal.chord.names().sort()} selected={this.props.chord} onChange={this.props.setChord}/>
       </div>
-      */}
 
       <div>
         <SimpleSelect values={tonal.scale.names().sort()} selected={this.props.scale} onChange={this.props.setScale}/>

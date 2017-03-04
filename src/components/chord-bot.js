@@ -59,7 +59,6 @@ export default class ChordBot extends Component {
   chordNotes() {
     const { chord, selectedNote } = this.state;
     const chordNotes = tonal.chord.get(chord, selectedNote);
-    console.log("chordNotes = ", chordNotes);
 
     return chordNotes.map(tonal.note.simplify);
   }
