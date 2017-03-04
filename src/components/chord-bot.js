@@ -83,11 +83,11 @@ return [];
         chord={this.state.chord}
       />
 
-    <div className="stats">
-      octave = {this.state.octave} <br/>
-      note = {this.state.selectedNote} <br/>
-      scaleNotes = {this.scaleNotes().join(' ')}
-    </div>
+      <div className="stats">
+        octave = {this.state.octave} <br/>
+        note = {this.state.selectedNote} <br/>
+        scaleNotes = {this.scaleNotes().join(' ')}
+      </div>
     </div>;
   }
 }
