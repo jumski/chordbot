@@ -1,3 +1,10 @@
+$white-key-height: 300px
+$white-key-width: 50px
+$note-name-padding: 30px
+
+$black-key-width: $white-key-width * 0.6
+$black-key-height: $white-key-height * 0.6
+
 .piano-key
 
   display: inline-block
@@ -19,25 +26,25 @@
   &.white
     border: 1px solid black
     background-color: white
-    width: 50px
-    height: 300px
+    width: $white-key-width
+    height: $white-key-height
 
     .note-name
-      top: 270px
-      margin-left: 15px
+      top: $white-key-height - $note-name-padding
+      margin-left: $white-key-width / 2
 
 
   &.black
     border: 1px solid black
     background-color: black
-    width: 30px
-    height: 200px
+    width: $black-key-width
+    height: $black-key-height
     position: absolute
-    margin-left: -15px
+    margin-left: -($black-key-width / 2)
     z-index: 23
 
     .note-name
-      top: 170px
+      top: $black-key-height - $note-name-padding
 
 
   &:hover
