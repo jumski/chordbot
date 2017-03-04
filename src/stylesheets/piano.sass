@@ -10,6 +10,8 @@ $black-key-color: black
 $dimmed-white-color: darken(#cecece, 15%)
 $dimmed-black-color: lighten(black, 50%)
 
+$note-name-font-size: 6px
+
 .piano-key
 
   display: inline-block
@@ -22,9 +24,8 @@ $dimmed-black-color: lighten(black, 50%)
   user-select: none
 
   .note-name
-    font-size: 8px
+    font-size: $note-name-font-size
     position: absolute
-    color: grey
 
   &.white
     border: 1px solid black
@@ -37,6 +38,7 @@ $dimmed-black-color: lighten(black, 50%)
       border-right: 1px solid black
 
     .note-name
+      color: lighten(black, 20%)
       top: $white-key-height - $note-name-padding
       margin-left: $white-key-width / 2
 
@@ -54,6 +56,7 @@ $dimmed-black-color: lighten(black, 50%)
     z-index: 23
 
     .note-name
+      color: darken(white, 20%)
       top: $black-key-height - $note-name-padding
 
     &.scale
@@ -65,4 +68,6 @@ $dimmed-black-color: lighten(black, 50%)
 
   &.selected
     border-color: red
+    border-width: 3px
+    border-right: 3px solid red
 
