@@ -1,3 +1,8 @@
 ---
-override:
-  - yarn run deploy
+dependencies:
+  override:
+    - yarn
+
+test:
+  override:
+    - yarn run deploy
