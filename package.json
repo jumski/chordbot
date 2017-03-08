@@ -24,7 +24,7 @@
     "watch": "node_modules/.bin/webpack --progress --colors --watch",
     "run": "$BROWSER http://localhost:8080",
     "server": "node_modules/.bin/webpack-dev-server --progress --colors",
-    "deploy": "yarn && yarn build && bin/git subtree push --prefix dist origin gh-pages",
+    "deploy": "yarn && yarn build && bin/git-subtree push --prefix dist origin gh-pages",
     "setup": "git subtree add --prefix dist/ git@github.com:jumski/chordbot.git gh-pages"
   },
   "dependencies": {
