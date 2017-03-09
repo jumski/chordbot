@@ -20,5 +20,4 @@ deployment:
   production:
     branch: master
     commands:
-      - bin/git-subtree add --prefix dist/ git@github.com:jumski/chordbot.git gh-pages || true
-      - bin/git-subtree push --prefix dist origin gh-pages
+      - bin/deploy

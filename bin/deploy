@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Automated deploy script with Circle CI.
+
+# Exit if any subcommand fails.
+set -e
+
+echo "Started deploying"
+
+if [ -n "$GH_USER_NAME" && -n "$GH_USER_EMAIL" ]; then
+  git config user.name "$GH_USER_NAME"
+  git config user.email "$GH_USER_EMAIL"
+
+  git add -fA
+  git commit --allow-empty -m "$(git log -1 --pretty=%B) [ci skip]"
+  git push -f $ORIGIN_URL gh-pages
+
+  bin/git-subtree add --prefix dist/ git@github.com:jumski/chordbot.git gh-pages || true
+  bin/git-subtree push --prefix dist origin gh-pages
+
+  echo "Deployed Successfully!"
+  exit 0
+else
+  echo "Missing GH_USER_NAME or GH_USER_EMAIL env variables!"
+  exit 1
+fi
+
