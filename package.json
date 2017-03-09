@@ -24,15 +24,16 @@
     "watch": "node_modules/.bin/webpack --progress --colors --watch",
     "run": "$BROWSER http://localhost:8080",
     "server": "node_modules/.bin/webpack-dev-server --progress --colors",
-
     "predeploy": "yarn build && yarn setup-subtree",
     "deploy": "bin/git-subtree push --prefix dist origin gh-pages",
-
     "setup-subtree": "bin/git-subtree add --prefix dist/ git@github.com:jumski/chordbot.git gh-pages || true"
   },
   "dependencies": {
+    "css-font-roboto": "^1.0.0",
+    "material-ui": "^0.17.0",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
+    "react-tap-event-plugin": "^2.0.1",
     "tonal": "^0.69.0",
     "webmidi": "^2.0.0-rc.4"
   }

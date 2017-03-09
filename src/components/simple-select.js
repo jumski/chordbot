@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import tonal from 'tonal';
+import SelectField from 'material-ui/SelectField';
+import MenuItem from 'material-ui/MenuItem';
+
+// Needed for onTouchTap
+import injectTapEventPlugin from 'react-tap-event-plugin';
+injectTapEventPlugin();
 
 export default class SimpleSelect extends Component {
-  selectOptions() {
+  get menuItems() {
     return this.props.values.map(name => {
-      return <option key={name} value={name}>{name}</option>;
+      return <MenuItem key={name} value={name} primaryText={name} />;
     });
   }
 
   render() {
-    return <select
+    return <SelectField
       value={this.props.selected}
       onChange={this.props.onChange}>
-      {this.selectOptions()}
-    </select>;
+      {this.menuItems}
+    </SelectField>;
   }
 }
