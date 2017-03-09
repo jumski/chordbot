@@ -15,6 +15,8 @@
     "node-sass": "^4.5.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.2",
+    "standard": "^9.0.1",
+    "standard-loader": "^6.0.1",
     "style-loader": "^0.13.2",
     "webpack": "^2.2.1",
     "webpack-dev-server": "2"
@@ -24,10 +26,8 @@
     "watch": "node_modules/.bin/webpack --progress --colors --watch",
     "run": "$BROWSER http://localhost:8080",
     "server": "node_modules/.bin/webpack-dev-server --progress --colors",
-
     "predeploy": "yarn build && yarn setup-subtree",
     "deploy": "bin/git-subtree push --prefix dist origin gh-pages",
-
     "setup-subtree": "bin/git-subtree add --prefix dist/ git@github.com:jumski/chordbot.git gh-pages || true"
   },
   "dependencies": {
