@@ -1,11 +1,24 @@
 ---
+general:
+  branches:
+    ignore:
+      - gh-pages
+
 machine:
   node:
     version: '6.9.4'
+
 dependencies:
   override:
     - yarn
 
 test:
   override:
-    - yarn run deploy
+    - yarn run build
+
+deployment:
+  production:
+    branch: master
+    commands:
+      - bin/git-subtree add --prefix dist/ git@github.com:jumski/chordbot.git gh-pages || true"
+      - bin/git-subtree push --prefix dist origin gh-pages
